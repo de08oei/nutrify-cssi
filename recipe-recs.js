@@ -1,21 +1,12 @@
-// constructor(name, surname, number, grades = []) {
-//     this.name = name;
-//     this.surname = surname;
-//     this.number = number;
-//     this.grades = grades;
-// }  
-
-
-
 class Recipe {
   constructor(name, cuisine, timeLow, timeHigh, ingredients = [], matchPercent, dietRestrict) {
     this.name = name;
     this.cuisine = cuisine;
     this.timeLow = timeLow;
     this.timeHigh = timeHigh;
-    this.ingredients = ingredients;
-    this.matchPercent = matchPercent;
-    this.dietRestrict = dietRestrict;
+    this.ingredients = ingredients; //done
+    this.matchPercent = matchPercent; //done
+    this.dietRestrict = dietRestrict; //done
   }
 }
 
@@ -41,7 +32,7 @@ function finalRecommendations() {
 //checks to see if each recipe recommended avoids diet restrictions
 function dietCheck() {
   for (var i = 0; i < recipes.length(); i++) {
-    var dietMatchCheck = ingredientCompare(recipes[i].ingredients.toUpperCase(), restrictions[].toUpperCase());
+    var dietMatchCheck = ingredientsCompare(recipes[i].ingredients.toUpperCase(), restrictions[].toUpperCase());
     if (dietMatchCheck == false) {
       recipes.push[recipes[i]];
     }
@@ -92,4 +83,27 @@ function matchCompare(matchRequirement, ingredients[], availableIngredients[]) {
   }
   
   return true;
+}
+
+//compares cuisine of recipe and cuisine preferred
+function cuisineCheck() {
+  
+}
+
+//helper method to cuisineCheck()
+//compares cuisines to evaluate priority showing
+function cuisineCompare() {
+  
+}
+
+
+//compares desired time to complete and actual time
+//recipes with prep time exceeding user range are eliminated
+function timeCheck() {
+  
+}
+
+//helper method to timeCheck()
+function timeCompare() {
+  
 }
