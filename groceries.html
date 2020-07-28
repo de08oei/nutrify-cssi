@@ -31,14 +31,20 @@
     </div>
   </div>
    <!-- End of Bootstrap code: -->
+  <br>
   
-  <nav>
-    <ul><a href="home.html">Home</a></ul>
-    <ul><a href="groceries.html">Grocery List</a></ul>
-    <ul><a href="preferences.html">Preferences</a></ul>
-    <ul><a href="recipe-recs.html">Meal Plan</a></ul>
-    <ul><a href="contact.html">Contact</a></ul>
-  </nav>
+<div id = "navBar" class = "sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="home.html">Home</a>
+    <a href="authentication.html">Authentication</a>
+    <a href="groceries.html">Grocery List</a>
+    <a href="preferences.html">Preferences</a>
+    <a href="recipe-recs.html">Meal Plan</a>
+    <a href="sample-recipes.html">Sample Recipes</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  
+  <span onclick = "openNav()">Menu</span>
   
   
   <head>
@@ -93,7 +99,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="dairyAdd">
-      <button id = "dairyButtonId"> Add more </button>
+      <button id = "dairyButtonId"> Add </button>
+    <button id = "dairyButtonIdDel"> Delete </button>
     
     <ul id="dairy">
     </ul>
@@ -105,7 +112,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="carbAdd">
-      <button id = "carbButtonId"> Add more </button>
+      <button id = "carbButtonId"> Add </button>
+    <button id = "carbButtonIdDel"> Delete </button>
     
     <ul id="carbs">
     </ul>
@@ -118,7 +126,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="proteinAdd">
-      <button id = "proteinButtonId"> Add more </button>
+      <button id = "proteinButtonId"> Add</button>
+    <button id = "proteinButtonIdDel"> Delete</button>
     <ul id = "protein">
     </ul>
     
@@ -131,7 +140,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="nutsAdd">
-      <button id = "nutsButtonId"> Add more </button>
+      <button id = "nutsButtonId"> Add </button>
+    <button id = "nutsButtonIdDel"> Delete </button>
     
     <ul id="nuts">
     </ul>
@@ -145,7 +155,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="vegetablesAdd">
-      <button id = "vegeButtonId"> Add more </button>
+      <button id = "vegeButtonId"> Add </button>
+    <button id = "vegeButtonIdDel"> Delete </button>
     
     <ul id="vegetables">
     </ul>
@@ -159,7 +170,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="fruitAdd">
-      <button id = "fruitButtonId"> Add more </button>
+      <button id = "fruitButtonId"> Add </button>
+    <button id = "fruitButtonIdDel"> Delete </button>
     
     <ul id="fruits">
     </ul>
@@ -172,7 +184,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="packageAdd">
-      <button id = "packageButtonId"> Add more </button>
+      <button id = "packageButtonId"> Add </button>
+    <button id = "packageButtonIdDel"> Delete </button>
     
     <ul id="packaged">
     </ul>
@@ -184,7 +197,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="ssAdd">
-      <button id = "ssButtonId"> Add more </button>
+      <button id = "ssButtonId"> Add </button>
+    <button id = "ssButtonIdDel"> Delete </button>
     
     <ul id="ss">
     </ul>
@@ -196,7 +210,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="beveragesAdd">
-      <button id = "beveragesButtonId"> Add more </button>
+      <button id = "beveragesButtonId"> Add </button>
+    <button id = "beveragesButtonIdDel"> Delete </button>
     
     <ul id="beverages">
     </ul>
@@ -208,7 +223,8 @@ function saveChanges() {
       </h2>
     
     <input type="text" id="miscAdd">
-      <button id = "miscButtonAdd"> Add more </button>
+      <button id = "miscButtonId">Add</button>
+    <button id = "miscButtonIdDel">Delete</button>
     
     <ul id="misc">
     </ul>
