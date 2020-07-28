@@ -16,11 +16,12 @@
 //dairy
 var dairyProducts = [];
 var dairyButton = document.getElementById("dairyButtonId").addEventListener("click", addDairyProduct);
+var dairyButtonDel = document.getElementById("dairyButtonIdDel").addEventListener("click", delDairyProduct);
 
 function addDairyProduct() {
   console.log("HI")
   var addedDairy = document.getElementById("dairyAdd").value;
-  dairyProducts.push(addedDairy);
+  dairyProducts.push(addedDairy.toUpperCase());
   console.log(dairyProducts)
   
   //https://stackoverflow.com/questions/20673959/how-to-add-new-li-to-ul-onclick-with-javascript
@@ -28,7 +29,23 @@ function addDairyProduct() {
   var li = document.createElement("li");
   li.appendChild(document.createTextNode(addedDairy));
   ul.appendChild(li);
-  
+}
+
+function delDairyProduct() {
+  console.log("Del dairy");
+  let index;
+  var delIngredient = document.getElementById("dairyAdd").value;
+  for (var i = 0; i < dairyProducts.length; i++) {
+    if (dairyProducts[i] == delIngredient.toUpperCase()) {
+      index = i;
+      dairyProducts.splice(i, 1);
+      break;
+    }
+  }
+  var list = document.getElementById("dairy")
+  console.log(list)
+  console.log(list[0])
+  list.removeChild(list[index]);
 }
 
 //carbs
@@ -38,7 +55,7 @@ var carbsButton = document.getElementById("carbButtonId").addEventListener("clic
 function addCarbs() {
   console.log("carbs");
   var addedCarb = document.getElementById("carbAdd").value;
-  carbs.push(addedCarb);
+  carbs.push(addedCarb.toUpperCase());
   console.log(carbs);
   
   var ul = document.getElementById("carbs");
@@ -54,7 +71,7 @@ var proteinButton = document.getElementById("proteinButtonId").addEventListener(
 function addProtein() {
   console.log("protein");
   var addedProtein = document.getElementById("proteinAdd").value;
-  carbs.push(addedProtein);
+  proteins.push(addedProtein.toUpperCase());
   console.log(proteins);
   
   var ul = document.getElementById("protein");
@@ -70,7 +87,7 @@ var nutsButton = document.getElementById("nutsButtonId").addEventListener("click
 function addNuts() {
   console.log("nuts");
   var addedIngredient = document.getElementById("nutsAdd").value;
-  carbs.push(addedIngredient);
+  nuts.push(addedIngredient.toUpperCase());
   console.log(nuts);
   
   var ul = document.getElementById("nuts");
@@ -86,7 +103,7 @@ var vegetablesButton = document.getElementById("vegeButtonId").addEventListener(
 function addVegetables() {
   console.log("veges");
   var addedIngredient = document.getElementById("vegetablesAdd").value;
-  carbs.push(addedIngredient);
+  vegetables.push(addedIngredient.toUpperCase());
   console.log(vegetables);
   
   var ul = document.getElementById("vegetables");
@@ -102,7 +119,7 @@ var fruitsButton = document.getElementById("fruitButtonId").addEventListener("cl
 function addFruits() {
   console.log("fruits");
   var addedIngredient = document.getElementById("fruitAdd").value;
-  carbs.push(addedIngredient);
+  fruits.push(addedIngredient.toUpperCase());
   console.log(fruits);
   
   var ul = document.getElementById("fruits");
@@ -112,9 +129,74 @@ function addFruits() {
 }
 
 //packaged foods
+var packaged = [];
+var packagedButton = document.getElementById("packageButtonId").addEventListener("click", addPackage);
+
+function addPackage() {
+  console.log("package");
+  var addedIngredient = document.getElementById("packageAdd").value;
+  packaged.push(addedIngredient.toUpperCase());
+  console.log(packaged);
+  
+  var ul = document.getElementById("packaged");
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(addedIngredient));
+  ul.appendChild(li);
+}
 
 //spices and sauces
+var sAndS = [];
+var SSButton = document.getElementById("ssButtonId").addEventListener("click", addSS);
+
+function addSS() {
+  console.log("ss");
+  var addedIngredient = document.getElementById("ssAdd").value;
+  sAndS.push(addedIngredient.toUpperCase());
+  console.log(sAndS);
+  
+  var ul = document.getElementById("ss");
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(addedIngredient));
+  ul.appendChild(li);
+}
 
 //beverages
+var beverages = [];
+var beveragesButton = document.getElementById("beveragesButtonId").addEventListener("click", addBeverage);
+
+function addBeverage() {
+  console.log("beverage");
+  var addedIngredient = document.getElementById("beveragesAdd").value;
+  beverages.push(addedIngredient.toUpperCase());
+  console.log(beverages);
+  
+  var ul = document.getElementById("beverages");
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(addedIngredient));
+  ul.appendChild(li);
+}
 
 //miscellaneous
+var misc = [];
+var miscButton = document.getElementById("miscButtonId").addEventListener("click", addMisc);
+
+function addMisc() {
+  console.log("package");
+  var addedIngredient = document.getElementById("miscAdd").value;
+  misc.push(addedIngredient.toUpperCase());
+  console.log(misc);
+  
+  var ul = document.getElementById("misc");
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(addedIngredient));
+  ul.appendChild(li);
+}
+
+/* navbar */ 
+function openNav() {
+  document.getElementById("navBar").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("navBar").style.width = "0";
+}
