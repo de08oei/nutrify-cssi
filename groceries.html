@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  
+  <!-- From: https://stackoverflow.com/questions/50907314/bootstrap-navbar-pop-up-form -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!--Anchor-->
+  <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign up Form</h4>
+        </div>
+        <div class="modal-body">
+          <p>Form Content</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+   <!-- End of Bootstrap code: -->
+  
+  <nav>
+    <ul><a href="home.html">Home</a></ul>
+    <ul><a href="groceries.html">Grocery List</a></ul>
+    <ul><a href="preferences.html">Preferences</a></ul>
+    <ul><a href="recipe-recs.html">Meal Plan</a></ul>
+    <ul><a href="contact.html">Contact</a></ul>
+  </nav>
+  
+  
+  <head>
+    <title>Your Fridge</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    
+    <!-- import the p5.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+        
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    
+  </head>  
+  <body>
+    
+  
+
+<!-- <!DOCTYPE HTML>
+  
+  </DO>//set up each of the grocery sections
+class groceryCategory(groceryType) {
+  constructor() {
+    this.groceryType = groceryType;
+  }
+}
+
+//when user presses "save" button their list is updated
+//even after refreshing
+function saveChanges() {
+  p.rect(50,50,50,50);
+  p.text("SAVE");
+  if (p.mouseClicked && p.mouseX < )
+}
+    <script src="style.css"></script> -->
+
+    
+    <h1>
+      Welcome to your Fridge!
+    </h1>
+    
+<!--     dairy -->
+    <h2>
+        Dairy Products:
+      </h2>
+    
+    <input type="text" id="dairyAdd">
+      <button id = "dairyButtonId"> Add more </button>
+    
+    <ul id="dairy">
+    </ul>
+<!-- end dairy -->
+    
+<!--     carbs -->
+    <h2>
+        Carbohydrates:
+      </h2>
+    
+    <input type="text" id="carbAdd">
+      <button id = "carbButtonId"> Add more </button>
+    
+    <ul id="carbs">
+    </ul>
+<!--     end carbs -->
+  
+<!--     proteins -->
+    
+    <h2>
+        Protein:
+      </h2>
+    
+    <input type="text" id="proteinAdd">
+      <button id = "proteinButtonId"> Add more </button>
+    <ul id = "protein">
+    </ul>
+    
+<!--     end protein -->
+    
+<!--     nuts -->
+    
+    <h2>
+        Nuts:
+      </h2>
+    
+    <input type="text" id="nutsAdd">
+      <button id = "nutsButtonId"> Add more </button>
+    
+    <ul id="nuts">
+    </ul>
+    
+<!--     end nuts -->
+    
+<!--     vegetables -->
+    
+    <h2>
+        Vegetables:
+      </h2>
+    
+    <input type="text" id="vegetablesAdd">
+      <button id = "vegeButtonId"> Add more </button>
+    
+    <ul id="vegetables">
+    </ul>
+    
+<!--         end vegetables -->
+    
+<!--     fruits -->
+    
+    <h2>
+        Fruits:
+      </h2>
+    
+    <input type="text" id="fruitAdd">
+      <button id = "fruitButtonId"> Add more </button>
+    
+    <ul id="fruits">
+    </ul>
+    
+<!--     end fruits -->
+    
+<!--     packaged foods -->
+    <h2>
+        Packaged Foods:
+      </h2>
+    
+    <input type="text" id="packageAdd">
+      <button id = "packageButtonId"> Add more </button>
+    
+    <ul id="packaged">
+    </ul>
+<!--     end packaged foods -->
+    
+<!--     spices and sauces -->
+    <h2>
+        Spices and Sauces:
+      </h2>
+    
+    <input type="text" id="ssAdd">
+      <button id = "ssButtonId"> Add more </button>
+    
+    <ul id="ss">
+    </ul>
+<!--     end spices and sauces -->
+
+<!--     beverages -->
+    <h2>
+        Beverages:
+      </h2>
+    
+    <input type="text" id="beveragesAdd">
+      <button id = "beveragesButtonId"> Add more </button>
+    
+    <ul id="beverages">
+    </ul>
+<!--     end beverages -->
+
+<!-- miscellaneous-->
+    <h2>
+        Miscellaneous:
+      </h2>
+    
+    <input type="text" id="miscAdd">
+      <button id = "miscButtonAdd"> Add more </button>
+    
+    <ul id="misc">
+    </ul>
+    
+<!--     end miscellaneous -->
+                
+    </body>
+  </html>
