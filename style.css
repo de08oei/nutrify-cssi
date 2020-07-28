@@ -42,3 +42,49 @@ li a:hover {
   background-color: #555;
   color: white;
 }
+
+/* nav bar */
+.sidenav {
+  height: 100%; /* full height */
+  width: 0;
+  position: fixed; /* makes it stay in place*/
+  z-index: 1; /*makes it stay on top */
+  top: 0; /*makes it stay at top */
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden; /*disables horizontal scroll */
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 32px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* for smaller screens*/
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+h1 {
+  text-align: center;
+}
