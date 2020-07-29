@@ -9,7 +9,8 @@ var app = express();
 // DB Setup
 var mongoose = require('mongoose');
 require('./db');
-const Coordinates = mongoose.model('Coordinates');
+const User = mongoose.model('User');
+const Recipe = mongoose.model('Recipe');
 var mongoDB = 'mongodb://127.0.0.1/mydatabase';
 mongoose.connect(mongoDB, {useNewUrlParser: true});
 var db = mongoose.connection;
@@ -43,29 +44,57 @@ io.sockets.on('connection',
     console.log("We have a new client: " + socket.id);
   
     // When this user emits, client side: socket.emit('otherevent',some data);
-    socket.on('mouse',
+    socket.on('recipes',
       function(data) {
         // Data comes in as whatever was sent, including objects
-        console.log("Received: 'mouse' " + data.x + " " + data.y);
-
-        const coordinates = new Coordinates({x: data.x, y: data.y});
+        console.log("Received: 'recipe' " + data.Recipe_Name + " " + data.Recipe_Allergens+ " " + 
+                    data.Recipe_Ingredients + " " + data.Recipe_Procedure + " " + data.Recipe_LowTime
+                   + " " + data.Recipe_HighTime + " " + data.Recipe_Cuisine);
+      
+        const recipe = new Recipe (
+          {Recipe_Name: data.Recipe_Name, Recipe_Allergens: data.Recipe_Allergens, Recipe_Ingredients: data.Recipe_Ingredients,
+          Recipe_Procedure: data.Recipe_Procedure, Recipe_LowTime: data.Recipe_LowTime, Recipe_HighTime: data.Recipe_HighTime,
+          Recipe_Cuisine: data.Recipe_Cuisine}
+        );
         console.log("Made coordinates");
-        coordinates.save(function (err, coordinates) {
+        recipe.save(function (err, recipe) {
           console.log("We're in");
           if (err) {
             console.log("NOOOOOOO");
           } else {
-            console.log("Saved " + coordinates);
+            console.log("Saved " + recipe);
+          }
+        })
+      
+      socket.on('user',
+      function(data) {
+        // Data comes in as whatever was sent, including objects
+        console.log("Received: 'user' " + data.Token + " " + data.Fridge + " " + 
+                    data.Recipe_Liked_Recipes);
+
+        const user = new User({Token: data.Token, Fridge: data.Fridge, Recipe_Liked_Recipes: data.Recipe_Liked_Recipes});
+        console.log("Made user");
+        user.save(function (err, user) {
+          console.log("We're in");
+          if (err) {
+            console.log("NOOOOOOO");
+          } else {
+            console.log("Saved " + user);
           }
         })
 
-        Coordinates.find({x: data.x}, function(res) {
+        Recipe.find({Recipe_Name: data.Recipe_Name}, function(res) {
           console.log("Success!");
-          console.log(data);
+          console.log(res);
+        });
+        
+        User.find({Token: data.Token}, function(res) {
+          console.log("Success!");
+          console.log(res);
         });
       
         // Send it to all other clients
-        socket.broadcast.emit('mouse', data);
+        socket.broadcast.emit('happy', data);
         
         // This is a way to send to everyone including sender
         // io.sockets.emit('message', "this goes to everyone");
