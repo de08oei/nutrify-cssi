@@ -48,13 +48,13 @@ io.sockets.on('connection',
     socket.on('recipes',
       function(data) {
         // Data comes in as whatever was sent, including objects
-        console.log("Received: 'recipe' " + data.Recipe_Name + " " + data.Recipe_Allergens+ " " +
+        console.log("Received: 'recipe' " + data.Recipe_Name + " " + data.Recipe_Restrictions + " " + data.Recipe_Serves + " " +
                     data.Recipe_Ingredients + " " + data.Recipe_Procedure + " " + data.Recipe_LowTime
                    + " " + data.Recipe_HighTime + " " + data.Recipe_Cuisine);
 
         const recipe = new Recipe (
-          {Recipe_Name: data.Recipe_Name, Recipe_Allergens: data.Recipe_Allergens, Recipe_Ingredients: data.Recipe_Ingredients,
-          Recipe_Procedure: data.Recipe_Procedure, Recipe_LowTime: data.Recipe_LowTime, Recipe_HighTime: data.Recipe_HighTime,
+          {Recipe_Name: data.Recipe_Name, Recipe_Restrictions: data.Recipe_Restrictions, Recipe_Ingredients: data.Recipe_Ingredients,
+          Recipe_Serves: data.Recipe_Serves, Recipe_Procedure: data.Recipe_Procedure, Recipe_LowTime: data.Recipe_LowTime, Recipe_HighTime: data.Recipe_HighTime,
           Recipe_Cuisine: data.Recipe_Cuisine}
         );
         console.log("Made coordinates");
