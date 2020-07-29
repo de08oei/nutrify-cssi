@@ -20,20 +20,12 @@ for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
     var div = this.parentElement;
     console.log("hi")
-    //this.parentElement.remove()
-    
     div.style.display = "none";
     
   }
 }
 
-// // Add a "checked" symbol when clicking on a list item
-// var list = document.querySelector('ul');
-// list.addEventListener('click', function(ev) {
-//   if (ev.target.tagName === 'LI') {
-//     ev.target.classList.toggle('checked');
-//   }
-// }, false);
+
 
 // addedDairy.setAttribute("id", dairyIndex);
 //   dairyIndex = dairyIndex + 1;
@@ -63,20 +55,49 @@ function newDairyElement() {
   span.appendChild(txt);
   li.appendChild(span);
 
+  //this is the function that makes the list item disappear after clicking x
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
       var div = this.parentElement;
       //this.parent().remove();
       div.style.display = "none";
       var thisIndex = div.id;
-      console.log(thisIndex)
+      console.log("you deleted index " + thisIndex)
       for (var a = 0; a < allDairy.length; a++) {
         if (a == thisIndex) {
-          allDairy.splice(a, 1);
+          if (allDairy.length == 1) {
+            allDairy.splice(a, 1);
+            document.getElementById(a).id = null;
+          }
+          else if (allDairy.length == 2 && a == 1) {
+            allDairy.splice(a, 1);
+            document.getElementById(a).id = null;
+            console.log("ind 1")
+          }
+          else if (allDairy.length == 2 && a == 0) {
+            allDairy.splice(a, 1);
+            document.getElementById(a).id = null;
+            document.getElementById(1).id = 0;
+            
+            console.log("ind 0")
+          }
+          else {
+            var lastIndex = allDairy.length - 1
+            var lastElement = allDairy[lastIndex]
+            allDairy.splice(a, 1, lastElement);
+            allDairy.splice(lastIndex, 1);
+            document.getElementById(a).id = null;
+            document.getElementById(lastIndex).id = a;
+
+          }
+          
+          dairyIndex = dairyIndex - 1;
+          console.log(allDairy);
         }
       }
     }
   }
+  
 }
 
 //CARBS
