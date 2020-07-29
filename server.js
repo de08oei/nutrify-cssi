@@ -11,7 +11,8 @@ var mongoose = require('mongoose');
 require('./db');
 const User = mongoose.model('User');
 const Recipe = mongoose.model('Recipe');
-var mongoDB = 'mongodb://127.0.0.1/mydatabase';
+var mongoDB = 'mongodb://localhost:3000/mydatabase';
+//var mongoDB = 'mongodb://127.0.0.1/mydatabase';
 mongoose.connect(mongoDB, {useNewUrlParser: true});
 var db = mongoose.connection;
 db.once('open', function() {
