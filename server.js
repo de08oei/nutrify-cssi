@@ -40,17 +40,17 @@ var io = require('socket.io')(server);
 io.sockets.on('connection',
   // We are given a websocket object in our function
   function (socket) {
-  
+
     console.log("We have a new client: " + socket.id);
-  
+
     // When this user emits, client side: socket.emit('otherevent',some data);
     socket.on('recipes',
       function(data) {
         // Data comes in as whatever was sent, including objects
-        console.log("Received: 'recipe' " + data.Recipe_Name + " " + data.Recipe_Allergens+ " " + 
+        console.log("Received: 'recipe' " + data.Recipe_Name + " " + data.Recipe_Allergens+ " " +
                     data.Recipe_Ingredients + " " + data.Recipe_Procedure + " " + data.Recipe_LowTime
                    + " " + data.Recipe_HighTime + " " + data.Recipe_Cuisine);
-      
+
         const recipe = new Recipe (
           {Recipe_Name: data.Recipe_Name, Recipe_Allergens: data.Recipe_Allergens, Recipe_Ingredients: data.Recipe_Ingredients,
           Recipe_Procedure: data.Recipe_Procedure, Recipe_LowTime: data.Recipe_LowTime, Recipe_HighTime: data.Recipe_HighTime,
@@ -64,12 +64,12 @@ io.sockets.on('connection',
           } else {
             console.log("Saved " + recipe);
           }
-        })
-      
+        });
+
       socket.on('user',
       function(data) {
         // Data comes in as whatever was sent, including objects
-        console.log("Received: 'user' " + data.Token + " " + data.Fridge + " " + 
+        console.log("Received: 'user' " + data.Token + " " + data.Fridge + " " +
                     data.Recipe_Liked_Recipes);
 
         const user = new User({Token: data.Token, Fridge: data.Fridge, Recipe_Liked_Recipes: data.Recipe_Liked_Recipes});
@@ -81,29 +81,30 @@ io.sockets.on('connection',
           } else {
             console.log("Saved " + user);
           }
-        })
+        });
 
         Recipe.find({Recipe_Name: data.Recipe_Name}, function(res) {
           console.log("Success!");
           console.log(res);
         });
-        
+
         User.find({Token: data.Token}, function(res) {
           console.log("Success!");
           console.log(res);
         });
-      
+
         // Send it to all other clients
         socket.broadcast.emit('happy', data);
-        
+
         // This is a way to send to everyone including sender
         // io.sockets.emit('message', "this goes to everyone");
 
       }
     );
-    
+
     socket.on('disconnect', function() {
       console.log("Client has disconnected");
     });
   }
 );
+});
