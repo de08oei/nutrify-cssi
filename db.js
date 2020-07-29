@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 
 const Recipe = new mongoose.Schema({
 	Recipe_Name: String,
-	Recipe_Allergens: Array,
+	Recipe_Restrictions: Array,
+	Recipe_Serves: Number,
 	Recipe_Ingredients: Array,
 	Recipe_Procedure: Array,
 	Recipe_LowTime: Number,
