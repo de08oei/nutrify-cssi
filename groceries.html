@@ -11,9 +11,10 @@
   
   <div id = "navBar" class = "sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
+    <a href="mission.html">Mission</a>
     <a href="authentication.html">Authentication</a>
-    <a href="groceries.html">Grocery List</a>
+    <a href="groceries.html">Your Fridge & Groceries</a>
     <a href="preferences.html">Preferences</a>
     <a href="recipe-recs.html">Meal Plan</a>
     <a href="sample-recipes.html">Sample Recipes</a>
@@ -24,7 +25,7 @@
   <span id = "menuBtn" onclick = "openNav()">Menu</span>
 
 <h1>
-  Groceries
+  Your Fridge + Grocery List
 </h1>
 
 
@@ -41,135 +42,169 @@
 </ul>
 -->
 
+<div id = "row1">
+    <!-- Dairy -->
+  <div class = "col1">
+    <div id="dairyDIV" class="header">
+      <h2>Dairy</h2>
+      <input type="text" id="myDairyInput" placeholder="Grocery Item">
+      <span onclick="newDairyElement()" class="addBtn">Add</span>
+    </div>
 
-<!-- Dairy -->
-<div id="dairyDIV" class="header">
-  <h2>Dairy</h2>
-  <input type="text" id="myDairyInput" placeholder="Grocery Item">
-  <span onclick="newDairyElement()" class="addBtn">Add</span>
-</div>
+    <ul id="myDairy">
+    <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
+  
 
-<ul id="myDairy">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
+  <br>
+  
+  <div class = "col1">
+      <!-- Carbohydrate -->
+    <div id="carbDIV" class="header">
+      <h2>Carbohydrates</h2>
+      <input type="text" id="myCarbInput" placeholder="Grocery Item">
+      <span onclick="newCarbElement()" class="addBtn">Add</span>
+    </div>
 
-<br>
+    <ul id="myCarb">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
+  
+  <br>
+  
+  <div class = "col1">
+    <!-- Protein -->
+  <div id="proteinDIV" class="header">
+      <h2>Protein</h2>
+      <input type="text" id="myProteinInput" placeholder="Grocery Item">
+      <span onclick="newProteinElement()" class="addBtn">Add</span>
+    </div>
 
-<!-- Carbohydrate -->
-<div id="carbDIV" class="header">
-  <h2>Carbohydrates</h2>
-  <input type="text" id="myCarbInput" placeholder="Grocery Item">
-  <span onclick="newCarbElement()" class="addBtn">Add</span>
-</div>
+    <ul id="myProtein">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
 
-<ul id="myCarb">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
+  <br>
 
-<br>
-
-
-<!-- Protein -->
-<div id="proteinDIV" class="header">
-  <h2>Protein</h2>
-  <input type="text" id="myProteinInput" placeholder="Grocery Item">
-  <span onclick="newProteinElement()" class="addBtn">Add</span>
-</div>
-
-<ul id="myProtein">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
-
-<br>
-
-<!-- Nuts -->
-<div id="nutsDIV" class="header">
-  <h2>Nuts</h2>
-  <input type="text" id="myNutsInput" placeholder="Grocery Item">
-  <span onclick="newNutsElement()" class="addBtn">Add</span>
-</div>
-
-<ul id="myNuts">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
+  </div>
+<!-- end row 1 -->
 
 <br>
 
-<!-- Vegetables -->
-<div id="vegetablesDIV" class="header">
-  <h2>Vegetables</h2>
-  <input type="text" id="myVegetablesInput" placeholder="Grocery Item">
-  <span onclick="newVegetablesElement()" class="addBtn">Add</span>
-</div>
 
-<ul id="myVegetables">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
+<div id = "row2">
+    <!-- Nuts -->
+  <div class = "col2">
+        <div id="nutsDIV" class="header">
+      <h2>Nuts</h2>
+      <input type="text" id="myNutsInput" placeholder="Grocery Item">
+      <span onclick="newNutsElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myNuts">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
+  
+
+  <!-- Vegetables -->
+  <div class = "col2">
+      <div id="vegetablesDIV" class="header">
+      <h2>Vegetables</h2>
+      <input type="text" id="myVegetablesInput" placeholder="Grocery Item">
+      <span onclick="newVegetablesElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myVegetables">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+
+  </div>
+  
+  
+
+  <!-- Fruits -->
+  <div class = "col2">
+
+      <div id="fruitsDIV" class="header">
+      <h2>Fruits</h2>
+      <input type="text" id="myFruitsInput" placeholder="Grocery Item">
+      <span onclick="newFruitsElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myFruits">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
+
+</div>
+<!-- end row 2 -->
+
 
 <br>
 
-<!-- Fruits -->
-<div id="fruitsDIV" class="header">
-  <h2>Fruits</h2>
-  <input type="text" id="myFruitsInput" placeholder="Grocery Item">
-  <span onclick="newFruitsElement()" class="addBtn">Add</span>
+<div id = "row3">
+    <!-- Packaged Foods -->
+  <div class = "col3">
+      <div id="packagedFoodsDIV" class="header">
+      <h2>Packaged Foods</h2>
+      <input type="text" id="myPackagedFoodsInput" placeholder="Grocery Item">
+      <span onclick="newPackagedFoodsElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myPackagedFoods">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
+
+
+  <!-- Spices and Sauces -->
+  <div class = "col3">
+      <div id="spicesAndSaucesDIV" class="header">
+      <h2>Spices and Sauces</h2>
+      <input type="text" id="mySpicesAndSaucesInput" placeholder="Grocery Item">
+      <span onclick="newNutsElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="mySpicesAndSauces">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
+
+
+  <!-- Beverages -->
+  <div class = "col3">
+      <div id="BeveragesDIV" class="header">
+      <h2>Beverages</h2>
+      <input type="text" id="myBeveragesInput" placeholder="Grocery Item">
+      <span onclick="newBeverages()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myBeverages">
+      <!-- list items user inserts will file in here using JS -->
+    </ul>
+  </div>
+  
 </div>
 
-<ul id="myFruits">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
-
-<br>
-
-<!-- Packaged Foods -->
-<div id="packagedFoodsDIV" class="header">
-  <h2>Packaged Foods</h2>
-  <input type="text" id="myPackagedFoodsInput" placeholder="Grocery Item">
-  <span onclick="newPackagedFoodsElement()" class="addBtn">Add</span>
-</div>
-
-<ul id="myPackagedFoods">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
-
-<br>
-
-<!-- Spices and Sauces -->
-<div id="spicesAndSaucesDIV" class="header">
-  <h2>Spices and Sauces</h2>
-  <input type="text" id="mySpicesAndSaucesInput" placeholder="Grocery Item">
-  <span onclick="newNutsElement()" class="addBtn">Add</span>
-</div>
-
-<ul id="mySpicesAndSauces">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
-
-<br>
-
-<!-- Beverages -->
-<div id="BeveragesDIV" class="header">
-  <h2>Beverages</h2>
-  <input type="text" id="myBeveragesInput" placeholder="Grocery Item">
-  <span onclick="newBeverages()" class="addBtn">Add</span>
-</div>
-
-<ul id="myBeverages">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
 
 <br>
 
 <!-- Miscellaneous -->
-<div id="MiscellaneousDIV" class="header">
-  <h2>Miscellaneous</h2>
-  <input type="text" id="myMiscellaneousInput" placeholder="Grocery Item">
-  <span onclick="newMiscellaneousElement()" class="addBtn">Add</span>
+<div id = "row4">
+    <div id="MiscellaneousDIV" class="header">
+    <h2>Grocery List </h2>
+    <input type="text" id="myMiscellaneousInput" placeholder="Grocery Item">
+    <span onclick="newMiscellaneousElement()" class="addBtn">Add</span>
+  </div>
+
+  <ul id="myMiscellaneous">
+    <!-- list items user inserts will file in here using JS -->
+  </ul>
 </div>
 
-<ul id="myMiscellaneous">
-  <!-- list items user inserts will file in here using JS -->
-</ul>
 
 <br>
-
