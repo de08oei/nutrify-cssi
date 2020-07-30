@@ -14,7 +14,7 @@ ul li {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  background: #eee;
+  background: none;
   font-size: 18px;
   transition: 0.2s;
 
@@ -113,3 +113,43 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
+
+/* //LAYOUT */
+#row1 {
+  display: table;
+  table-layout: fixed;
+  margin: auto;
+}
+
+.col1{
+  display:table-cell;
+}
+
+#row2 {
+  display: table;
+  table-layout: fixed;
+  margin: auto;align-items: center;
+}
+
+.col2{
+  display: table-cell;
+}
+
+#row3 {
+  display: table;
+  table-layout: fixed;
+  margin: auto;
+}
+
+.col3{
+  display: table-cell;
+}
+
+#row4{
+  display: table;
+  margin: auto;
+}
+
+/* #dairyDIV:hover{
+  background-color: black;
+} */
