@@ -1,0 +1,213 @@
+<!-- Integrate CSS styling --> 
+<link rel="stylesheet" href="style.css">
+
+<!-- Page outline: integrate with preferences.js to communicate with database
+     that will run the recipe-recs sorting methods.
+--> 
+<!-- NAV BAR -->
+  <script src="script.js"></script>
+  <div id = "navBar" class = "sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="home.html">Home</a>
+    <a href="authentication.html">Authentication</a>
+    <a href="groceries.html">Grocery List</a>
+    <a href="preferences.html">Preferences</a>
+    <a href="recipe-recs.html">Meal Plan</a>
+    <a href="sample-recipes.html">Sample Recipes</a>
+    <a href="contact.html">Contact</a>
+
+  </div>
+  
+  <span id = "menuBtn" onclick = "openNav()">Menu</span>
+  
+<!-- end nav bar -->
+<!-- Link to help with forms: https://www.w3schools.com/html/html_form_input_types.asp --> 
+
+<h1>
+  Preferences
+</h1>
+
+<h2>
+  Ingredients
+</h2>
+<h3>
+  Select any high-priority ingredients you want to ensure use of in the recipe!
+</h3>
+Checkbox: <input type="checkbox" id="myCheck" onclick="ingredientPreferences()">
+<p>
+   hey
+</p>
+<p id="text" style="display:none">Checkbox is CHECKED!</p>
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    <p>
+      Dairy
+    </p>
+  </div>
+</div>
+
+
+<!-- Dietary Restrictions --> 
+
+<h2>
+  Dietary Restrictions
+</h2>
+<h3>
+  We will filter out all recipe results that may contain any allergens or other
+  food restrictions that you need to avoid!
+</h3>
+
+  <!-- Allergens --> 
+<p>
+  <b>Allergens</b>
+</p>
+
+<!--
+<form>
+  <input type="checkbox" id="Dairy" name="Dairy" value="Dairy">
+  <label for="Dairy"> Dairy</label>
+  
+  <input type="checkbox" id="Gluten" name="Gluten" value="Gluten">
+  <label for="Gluten"> Gluten</label><br>
+  
+  <input type="checkbox" id="Peanuts" name="Peanuts" value="Peanuts">
+  <label for="Peanuts"> Peanuts</label>
+  
+  <input type="checkbox" id="Tree Nuts" name="Tree Nuts" value="Tree Nuts">
+  <label for="Tree Nuts"> Tree Nuts</label><br>
+  
+  <input type="checkbox" id="Egg" name="Egg" value="Egg">
+  <label for="Egg"> Egg</label>
+  
+  <input type="checkbox" id="Soy" name="Soy" value="Soy">
+  <label for="Soy"> Soy</label><br>
+  
+  <input type="checkbox" id="Wheat" name="Wheat" value="Wheat">
+  <label for="Wheat"> Wheat</label>
+  
+  <input type="checkbox" id="Shellfish" name="Shellfish" value="Shellfish">
+  <label for="Shellfish"> Shellfish</label><br>
+</form>
+
+-->
+
+<table style="width:100%">
+  <tr>
+    
+    <td>
+      <input type="checkbox" id="Dairy" name="Dairy" value="Dairy">
+      <label for="Dairy"> Dairy</label>
+    </td>
+    
+    <td>
+      <input type="checkbox" id="Gluten" name="Gluten" value="Gluten">
+      <label for="Gluten"> Gluten</label><br>
+    </td>
+    
+  </tr>
+  
+  <tr>
+    <td>
+      <input type="checkbox" id="Peanuts" name="Peanuts" value="Peanuts">
+      <label for="Peanuts"> Peanuts</label>
+    </td>
+    
+    <td>
+      <input type="checkbox" id="Tree Nuts" name="Tree Nuts" value="Tree Nuts">
+      <label for="Tree Nuts"> Tree Nuts</label><br>
+    </td>
+    
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" id="Egg" name="Egg" value="Egg">
+      <label for="Egg"> Egg</label>
+    </td>
+    
+    <td>
+      <input type="checkbox" id="Soy" name="Soy" value="Soy">
+      <label for="Soy"> Soy</label><br>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <input type="checkbox" id="Wheat" name="Wheat" value="Wheat">
+      <label for="Wheat"> Wheat</label>
+    </td>
+    
+    <td>
+      <input type="checkbox" id="Shellfish" name="Shellfish" value="Shellfish">
+      <label for="Shellfish"> Shellfish</label><br>
+    </td>
+  </tr>
+  
+</table>
+
+  <!-- Vegan / Vegetarian --> 
+<p>
+  <b>Dietary Preferences</b>
+</p>
+
+<form>
+  <input type="checkbox" id="Vegan" name="Vegan" value="Vegan">
+  <label for="Vegan"> Vegan</label><br>
+  <input type="checkbox" id="Vegetarian" name="Vegetarian" value="Vegetarian">
+  <label for="Vegetarian"> Vegetarian</label><br>
+</form>
+
+<!-- Checkboxes for: vegan & vegetarian,  -->
+
+
+<h2>
+  Prep time
+</h2>
+<h3>
+  Running low on time? Let us know what your ideal cooking time is, and we will 
+  give you awesome recipes you can make on the go!
+</h3>
+
+<p>
+  <b>Low Time (minutes) </b>
+</p>
+
+
+
+<p>
+  <b>High Time (minutes) </b>
+</p>
+
+
+
+<h2>
+  Cuisine
+</h2>
+<h3>
+  Craving a specific cuisine? We've got you covered! Select one or many to filter
+  options and get the recipe for the meal on your mind right now!
+</h3>
+
+<!-- Checkboxes for all the different cuisine options we integrated. -->
+
+<!-- STRETCH: COMING SOON -->
+
+<!-- <h2>
+  Skill Level
+</h2>
+<h3>
+  Coming soon! This feature will allow you to sort recipes based on your current 
+  cooking skill level to better customize your experience.
+</h3>
+
+<h2>
+  Calories
+</h2>
+<h3>
+  Let us know your target caloric range to help better tailor your diet to your 
+  nutritional goals!
+</h3> -->
