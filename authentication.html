@@ -3,8 +3,28 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="script.js"></script>
   </head>
   <body>
+    
+    <!-- NAV BAR -->
+  
+  <div id = "navBar" class = "sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="home.html">Home</a>
+    <a href="authentication.html">Authentication</a>
+    <a href="groceries.html">Grocery List</a>
+    <a href="preferences.html">Preferences</a>
+    <a href="recipe-recs.html">Meal Plan</a>
+    <a href="sample-recipes.html">Sample Recipes</a>
+    <a href="contact.html">Contact</a>
+
+  </div>
+  
+  <span id = "menuBtn" onclick = "openNav()">Menu</span>
+  
+<!-- end nav bar -->
+    
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     <script>
       function onSignIn(googleUser) {
@@ -21,6 +41,14 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       }
+      
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+      console.log('User signed out.');
+      });
+    }
+      
     </script>
   </body>
 </html>
