@@ -34,11 +34,12 @@
   
    <!-- NAV BAR -->
   
-  <div id = "navBar" class = "sidenav">
+ <div id = "navBar" class = "sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
+    <a href="mission.html">Mission</a>
     <a href="authentication.html">Authentication</a>
-    <a href="groceries.html">Grocery List</a>
+    <a href="groceries.html">Your Fridge & Groceries</a>
     <a href="preferences.html">Preferences</a>
     <a href="recipe-recs.html">Meal Plan</a>
     <a href="sample-recipes.html">Sample Recipes</a>
@@ -60,6 +61,9 @@
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
     
+    <!-- import the door's stylesheet -->
+    <link rel="stylesheet" href="/doorTrial.css">
+    
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
     
@@ -80,10 +84,47 @@
     
   </head>  
   <body>
-<h1>
-      Welcome to Nutrify!
+    
+    
+    
+    <h1 id = "nutrifyTitle">
+      Nutrify
     </h1>
 
+<!--     DOOR -->
+    <div class = "pic">
+        <div class = "allDoor">
+          <div class = "door">
+
+          </div>
+
+          <div class = "door2">
+
+          </div>
+
+          <h2 class = "text">
+          What's in your fridge today?
+        </h2>
+
+          
+      </div>
+      <br>
+      <br>
+          
+    </div>
+          <!-- Link this to Groceries page -->
+    
+    <button type="button" id = "startNowBtn">
+      <a href="groceries.html">Get started now!</a>
+    
+    </button>
+      
+<!--     end door -->
+<!--     <div class = "door"> </div>  -->
+    
+     
+    
+    
     
   </body>
 </html>
