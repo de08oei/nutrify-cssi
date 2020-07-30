@@ -1,0 +1,56 @@
+.allDoor {
+  position: flex;
+  width: 400px;
+  height: 500px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  margin: auto;
+  background-size: 400px 500px;
+  background-image: url('https://cdn.glitch.com/0b10e7d2-635c-425b-a590-73881f6aa189%2F0a7f7c3878c347bf7fb78c2fc6b7713f.jpg?v=1596106156767');
+}
+
+.text:hover .allDoor{
+  transform: rotateY(60deg);
+}
+
+.door{
+  height: 500px;
+  width: 200px;
+  float: right;
+  background: #ab08dd;
+  transition: 1s;
+  transform-origin: 100% 50%;
+  background-color: #bdd4e7;
+  background-image: linear-gradient(to right, #8693ab, white 10%, #8693ab);
+
+  
+}
+
+.door:hover{
+  transform: rotateY(90deg);
+}
+
+.door2{
+  height: 500px;
+  width: 200px;
+  float: left;
+  background: #ab08dd;
+  transition: 1s ease;
+  transform-origin: 0 50%;
+  background-color: #bdd4e7;
+  background-image: linear-gradient(to left, #8693ab, white 10%, #8693ab);
+
+}
+
+.door2:hover{
+  transform: rotateY(-90deg);
+}
+
+
+#startNowBtn {
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* end door */
