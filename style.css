@@ -4,6 +4,7 @@ body {
   background-color: #e1ecf5;
   font-family: 'Montserrat', sans-serif;
   margin: 2em;
+  perspective: none;
 }
 
 h1 {
@@ -27,6 +28,10 @@ h2 {
 h3 {
   font-family: 'Esteban', serif;
 
+}
+
+.text {
+  font-style: italic;
 }
 
 p {
@@ -99,4 +104,8 @@ li a:hover {
 
 h1 {
   text-align: center;
+}
+
+#nutrifyTitle {
+  font-size: 130px;
 }
