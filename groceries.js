@@ -407,3 +407,75 @@ function newFruitsElement() {
   }
   
 }
+
+var allMiscellaneous = [];
+var miscellaneousIndex = 0;
+
+// Create a new list item when clicking on the "Add" button
+function newMiscellaneousElement() {
+  var li = document.createElement("li");
+ 
+  var inputValue = document.getElementById("myMiscellaneousInput").value;
+  var t = document.createTextNode(inputValue);
+  li.setAttribute("id", miscellaneousIndex);
+  miscellaneousIndex++;
+   
+  allMiscellaneous.push(inputValue.toUpperCase());
+  console.log(allMiscellaneous);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myMiscellaneous").appendChild(li);
+  }
+  document.getElementById("myMiscellaneousInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);  
+
+  //this is the function that makes the list item disappear after clicking x
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+      var thisIndex = div.id;
+      console.log("you deleted index " + thisIndex)
+      for (var a = 0; a < allMiscellaneous.length; a++) {
+        if (a == thisIndex) {
+          if (allMiscellaneous.length == 1) {
+            allMiscellaneous.splice(a, 1);
+            
+          }
+          else if (allMiscellaneous.length == 2 && a == 1) {
+            allMiscellaneous.splice(a, 1);
+            
+          }
+          else if (allMiscellaneous.length == 2 && a == 0) {
+            allMiscellaneous.splice(a, 1);
+            
+            
+            console.log("ind 0")
+          }
+          else {
+            allMiscellaneous.splice(a, 1);
+            
+            
+            var newIndexes = a;
+            while (newIndexes != allMiscellaneous.length) {
+              document.getElementById(newIndexes + 1).id = newIndexes;
+              newIndexes = newIndexes + 1;
+            }
+
+          }
+          
+          miscellaneousIndex = miscellaneousIndex - 1;
+          console.log(allMiscellaneous);
+        }
+      }
+    }
+  }
+  
+}
