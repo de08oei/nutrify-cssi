@@ -1,18 +1,3 @@
-//DAIRY
-var allDairy = [];
-var dairyIndex = 0;
-  
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
-
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
@@ -25,10 +10,20 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
 
-
-// addedDairy.setAttribute("id", dairyIndex);
-//   dairyIndex = dairyIndex + 1;
+//DAIRY
+var allDairy = [];
+var dairyIndex = 0;
 
 // Create a new list item when clicking on the "Add" button
 function newDairyElement() {
@@ -53,7 +48,7 @@ function newDairyElement() {
   var txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
-  li.appendChild(span);
+  li.appendChild(span);  
 
   //this is the function that makes the list item disappear after clicking x
   for (i = 0; i < close.length; i++) {
@@ -82,12 +77,14 @@ function newDairyElement() {
             console.log("ind 0")
           }
           else {
-            var lastIndex = allDairy.length - 1
-            var lastElement = allDairy[lastIndex]
-            allDairy.splice(a, 1, lastElement);
-            allDairy.splice(lastIndex, 1);
+            allDairy.splice(a, 1);
             document.getElementById(a).id = null;
-            document.getElementById(lastIndex).id = a;
+            
+            var newIndexes = a;
+            while (newIndexes != allDairy.length) {
+              document.getElementById(newIndexes + 1).id = newIndexes;
+              newIndexes = newIndexes + 1;
+            }
 
           }
           
@@ -102,40 +99,20 @@ function newDairyElement() {
 
 //CARBS
 
-// Create a "close" button and append it to each list item
-var myNodelistCarb = document.getElementsByTagName("LI");
-var i;
-for (var i = 0; i < myNodelistCarb.length; i++) {
-  var spanCarbs = document.createElement("SPAN");
-  var txtCarbs = document.createTextNode("\u00D7");
-  spanCarbs.className = "close";
-  spanCarbs.appendChild(txtCarbs);
-  myNodelistCarb[i].appendChild(spanCarbs);
-}
-
-// // Click on a close button to hide the current list item
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
-
-// Add a "checked" symbol when clicking on a list item
-var listCarbs = document.querySelector('ul');
-listCarbs.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+var allCarb = [];
+var carbIndex = 0;
 
 // Create a new list item when clicking on the "Add" button
 function newCarbElement() {
+  var carbId = carbIndex + 0.1
   var li = document.createElement("li");
   var inputValue = document.getElementById("myCarbInput").value;
   var t = document.createTextNode(inputValue);
+  li.setAttribute("id", carbId);
+  carbIndex++;
+   
+  allCarb.push(inputValue.toUpperCase());
+  console.log(allCarb);
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
@@ -144,56 +121,76 @@ function newCarbElement() {
   }
   document.getElementById("myCarbInput").value = "";
 
-  var spanCarbs = document.createElement("SPAN");
-  var txtCarbs = document.createTextNode("\u00D7");
-  spanCarbs.className = "close";
-  spanCarbs.appendChild(txtCarbs);
-  li.appendChild(spanCarbs);
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);  
+  
 
+  //this is the function that makes the list item disappear after clicking x
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
       var div = this.parentElement;
+      //this.parent().remove();
       div.style.display = "none";
+      var thisIndex = div.id - 0.1;
+      console.log("you deleted index " + thisIndex)
+      for (var a = 0; a < allCarb.length; a++) {
+        if (a == thisIndex) {
+          if (allCarb.length == 1) {
+            allCarb.splice(a, 1);
+            document.getElementById(a + 0.1).id = null;
+          }
+          else if (allCarb.length == 2 && a == 1) {
+            allCarb.splice(a, 1);
+            document.getElementById(a + 0.1).id = null;
+            console.log("ind 1")
+          }
+          else if (allCarb.length == 2 && a == 0) {
+            allCarb.splice(a, 1);
+            document.getElementById(a + 0.1).id = null;
+            document.getElementById(1 + 0.1).id = 0.1;
+            
+            console.log("ind 0")
+          }
+          else {
+            allCarb.splice(a, 1);
+            document.getElementById(a + 0.1).id = null;
+            
+            var newIndexes = a;
+            while (newIndexes != allCarb.length) {
+              document.getElementById(newIndexes + 1 + 0.1).id = newIndexes + 0.1;
+              newIndexes = newIndexes + 1;
+            }
+
+          }
+          
+          carbIndex = carbIndex - 1;
+          console.log(allCarb);
+        }
+      }
     }
   }
+  
 }
 
 //Proteins
 
-// Create a "close" button and append it to each list item
-var myNodelistProtein = document.getElementsByTagName("LI");
-var i;
-for (var i = 0; i < myNodelistProtein.length; i++) {
-  var spanProtein = document.createElement("SPAN");
-  var txtProtein = document.createTextNode("\u00D7");
-  spanProtein.className = "close";
-  spanProtein.appendChild(txtProtein);
-  myNodelistProtein[i].appendChild(spanProtein);
-}
-
-// // Click on a close button to hide the current list item
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
-
-// Add a "checked" symbol when clicking on a list item
-var listProtein = document.querySelector('ul');
-listProtein.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+var allProtein = [];
+var proteinIndex = 0;
 
 // Create a new list item when clicking on the "Add" button
 function newProteinElement() {
+  var proteinId = proteinIndex + 0.2
   var li = document.createElement("li");
   var inputValue = document.getElementById("myProteinInput").value;
   var t = document.createTextNode(inputValue);
+  li.setAttribute("id", proteinId);
+  proteinIndex++;
+   
+  allProtein.push(inputValue.toUpperCase());
+  console.log(allProtein);
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
@@ -202,114 +199,75 @@ function newProteinElement() {
   }
   document.getElementById("myProteinInput").value = "";
 
-  var spanProtein = document.createElement("SPAN");
-  var txtProtein = document.createTextNode("\u00D7");
-  spanProtein.className = "close";
-  spanProtein.appendChild(txtProtein);
-  li.appendChild(spanProtein);
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);  
+  
 
-  // for (i = 0; i < close.length; i++) {
-  //   close[i].onclick = function() {
-  //     var div = this.parentElement;
-  //     div.style.display = "none";
-  //   }
-  // }
-}
+  //this is the function that makes the list item disappear after clicking x
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+      var thisIndex = div.id - 0.2;
+      console.log("you deleted index " + thisIndex)
+      for (var a = 0; a < allProtein.length; a++) {
+        if (a == thisIndex) {
+          if (allProtein.length == 1) {
+            allProtein.splice(a, 1);
+            document.getElementById(a + 0.2).id = null;
+          }
+          else if (allProtein.length == 2 && a == 1) {
+            allProtein.splice(a, 1);
+            document.getElementById(a + 0.2).id = null;
+            console.log("ind 1")
+          }
+          else if (allProtein.length == 2 && a == 0) {
+            allProtein.splice(a, 1);
+            document.getElementById(a + 0.2).id = null;
+            document.getElementById(1 + 0.2).id = 0.2;
+            
+            console.log("ind 0")
+          }
+          else {
+            allProtein.splice(a, 1);
+            document.getElementById(a + 0.2).id = null;
+            
+            var newIndexes = a;
+            while (newIndexes != allProtein.length) {
+              document.getElementById(newIndexes + 1 + 0.2).id = newIndexes + 0.2;
+              newIndexes = newIndexes + 1;
+            }
 
-//Nuts
-
-// Create a "close" button and append it to each list item
-var myNodelistNuts = document.getElementsByTagName("LI");
-var i;
-for (var i = 0; i < myNodelistNuts.length; i++) {
-  var spanNuts = document.createElement("SPAN");
-  var txtNuts = document.createTextNode("\u00D7");
-  spanNuts.className = "close";
-  spanNuts.appendChild(txtNuts);
-  myNodelistNuts[i].appendChild(spanNuts);
-}
-
-// // Click on a close button to hide the current list item
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
-
-// Add a "checked" symbol when clicking on a list item
-var listNuts = document.querySelector('ul');
-listNuts.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
+          }
+          
+          proteinIndex = proteinIndex - 1;
+          console.log(allProtein);
+        }
+      }
+    }
   }
-}, false);
-
-// Create a new list item when clicking on the "Add" button
-function newNutsElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myNutsInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myNuts").appendChild(li);
-  }
-  document.getElementById("myNutsInput").value = "";
-
-  var spanNuts = document.createElement("SPAN");
-  var txtNuts = document.createTextNode("\u00D7");
-  spanNuts.className = "close";
-  spanNuts.appendChild(txtNuts);
-  li.appendChild(spanNuts);
-
-  // for (i = 0; i < close.length; i++) {
-  //   close[i].onclick = function() {
-  //     var div = this.parentElement;
-  //     div.style.display = "none";
-  //   }
-  // }
+  
 }
 
 //Vegetables
 
-// Create a "close" button and append it to each list item
-var myNodelistVegetables = document.getElementsByTagName("LI");
-var i;
-for (var i = 0; i < myNodelistVegetables.length; i++) {
-  var spanVegetables = document.createElement("SPAN");
-  var txtVegetables = document.createTextNode("\u00D7");
-  spanVegetables.className = "close";
-  spanVegetables.appendChild(txtVegetables);
-  myNodelistVegetables[i].appendChild(spanVegetables);
-}
-
-// // Click on a close button to hide the current list item
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
-
-// Add a "checked" symbol when clicking on a list item
-var listVegetables = document.querySelector('ul');
-listVegetables.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+var allVegetables = [];
+var vegetablesIndex = 0;
 
 // Create a new list item when clicking on the "Add" button
 function newVegetablesElement() {
+  var vegetablesId = vegetablesIndex + 0.3
   var li = document.createElement("li");
   var inputValue = document.getElementById("myVegetablesInput").value;
   var t = document.createTextNode(inputValue);
+  li.setAttribute("id", vegetablesId);
+  vegetablesIndex++;
+   
+  allVegetables.push(inputValue.toUpperCase());
+  console.log(allVegetables);
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
@@ -318,56 +276,76 @@ function newVegetablesElement() {
   }
   document.getElementById("myVegetablesInput").value = "";
 
-  var spanVegetables = document.createElement("SPAN");
-  var txtVegetables = document.createTextNode("\u00D7");
-  spanVegetables.className = "close";
-  spanVegetables.appendChild(txtVegetables);
-  li.appendChild(spanVegetables);
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);  
+  
 
-  // for (i = 0; i < close.length; i++) {
-  //   close[i].onclick = function() {
-  //     var div = this.parentElement;
-  //     div.style.display = "none";
-  //   }
-  // }
+  //this is the function that makes the list item disappear after clicking x
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+      var thisIndex = div.id - 0.3;
+      console.log("you deleted index " + thisIndex)
+      for (var a = 0; a < allVegetables.length; a++) {
+        if (a == thisIndex) {
+          if (allVegetables.length == 1) {
+            allVegetables.splice(a, 1);
+            document.getElementById(a + 0.3).id = null;
+          }
+          else if (allVegetables.length == 2 && a == 1) {
+            allVegetables.splice(a, 1);
+            document.getElementById(a + 0.3).id = null;
+            console.log("ind 1")
+          }
+          else if (allVegetables.length == 2 && a == 0) {
+            allVegetables.splice(a, 1);
+            document.getElementById(a + 0.3).id = null;
+            document.getElementById(1 + 0.3).id = 0.3;
+            
+            console.log("ind 0")
+          }
+          else {
+            allVegetables.splice(a, 1);
+            document.getElementById(a + 0.3).id = null;
+            
+            var newIndexes = a;
+            while (newIndexes != allVegetables.length) {
+              document.getElementById(newIndexes + 1 + 0.3).id = newIndexes + 0.3;
+              newIndexes = newIndexes + 1;
+            }
+
+          }
+          
+          vegetablesIndex = vegetablesIndex - 1;
+          console.log(allVegetables);
+        }
+      }
+    }
+  }
+  
 }
 
 //Fruits
 
-// Create a "close" button and append it to each list item
-var myNodelistFruits = document.getElementsByTagName("LI");
-var i;
-for (var i = 0; i < myNodelistFruits.length; i++) {
-  var spanFruits = document.createElement("SPAN");
-  var txtFruits = document.createTextNode("\u00D7");
-  spanFruits.className = "close";
-  spanFruits.appendChild(txtFruits);
-  myNodelistFruits[i].appendChild(spanFruits);
-}
-
-// // Click on a close button to hide the current list item
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
-
-// Add a "checked" symbol when clicking on a list item
-var listFruits = document.querySelector('ul');
-listFruits.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+var allFruits = [];
+var fruitsIndex = 0;
 
 // Create a new list item when clicking on the "Add" button
 function newFruitsElement() {
+  var fruitsId = fruitsIndex + 0.4;
   var li = document.createElement("li");
   var inputValue = document.getElementById("myFruitsInput").value;
   var t = document.createTextNode(inputValue);
+  li.setAttribute("id", fruitsId);
+  console.log(fruitsId)
+  fruitsIndex++;
+   
+  allFruits.push(inputValue.toUpperCase());
+  console.log(allFruits);
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
@@ -376,16 +354,56 @@ function newFruitsElement() {
   }
   document.getElementById("myFruitsInput").value = "";
 
-  var spanFruits = document.createElement("SPAN");
-  var txtFruits = document.createTextNode("\u00D7");
-  spanFruits.className = "close";
-  spanFruits.appendChild(txtFruits);
-  li.appendChild(spanFruits);
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);  
+  
 
-  // for (i = 0; i < close.length; i++) {
-  //   close[i].onclick = function() {
-  //     var div = this.parentElement;
-  //     div.style.display = "none";
-  //   }
-  // }
+  //this is the function that makes the list item disappear after clicking x
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      //this.parent().remove();
+      div.style.display = "none";
+      var thisIndex = div.id - 0.4;
+      console.log("you deleted index " + thisIndex)
+      for (var a = 0; a < allFruits.length; a++) {
+        if (a == thisIndex) {
+          if (allFruits.length == 1) {
+            allFruits.splice(a, 1);
+            document.getElementById(a + 0.4).id = null;
+          }
+          else if (allFruits.length == 2 && a == 1) {
+            allFruits.splice(a, 1);
+            document.getElementById(a + 0.4).id = null;
+            console.log("ind 1")
+          }
+          else if (allFruits.length == 2 && a == 0) {
+            allFruits.splice(a, 1);
+            document.getElementById(a + 0.4).id = null;
+            document.getElementById(1 + 0.4).id = 0.4;
+            
+            console.log("ind 0")
+          }
+          else {
+            allFruits.splice(a, 1);
+            document.getElementById(a + 0.4).id = null;
+            
+            var newIndexes = a;
+            while (newIndexes != allFruits.length) {
+              document.getElementById(newIndexes + 1 + 0.4).id = newIndexes + 0.4;
+              newIndexes = newIndexes + 1;
+            }
+
+          }
+          
+          fruitsIndex = fruitsIndex - 1;
+          console.log(allFruits);
+        }
+      }
+    }
+  }
+  
 }
