@@ -1,39 +1,15 @@
+<!-- Integrate CSS styling --> 
+<link rel="stylesheet" href="style.css">
+
 <!DOCTYPE html>
-<html lang="en">
+
+<script src="groceries.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="groceries.css">
+
+<!-- NAV BAR -->
   
-  
-  <!-- From: https://stackoverflow.com/questions/50907314/bootstrap-navbar-pop-up-form -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <!--Anchor-->
-  <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sign up Form</h4>
-        </div>
-        <div class="modal-body">
-          <p>Form Content</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-   <!-- End of Bootstrap code: -->
-  <br>
-  
-<div id = "navBar" class = "sidenav">
+  <div id = "navBar" class = "sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="home.html">Home</a>
     <a href="authentication.html">Authentication</a>
@@ -42,194 +18,158 @@
     <a href="recipe-recs.html">Meal Plan</a>
     <a href="sample-recipes.html">Sample Recipes</a>
     <a href="contact.html">Contact</a>
+
   </div>
   
-  <span onclick = "openNav()">Menu</span>
-  
-  
-  <head>
-    <title>Your Fridge</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
-    
-    <!-- import the p5.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
-        
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    
-  </head>  
-  <body>
-    
-  
+  <span id = "menuBtn" onclick = "openNav()">Menu</span>
 
-<!-- <!DOCTYPE HTML>
-  
-  </DO>//set up each of the grocery sections
-class groceryCategory(groceryType) {
-  constructor() {
-    this.groceryType = groceryType;
-  }
-}
+<h1>
+  Groceries
+</h1>
 
-//when user presses "save" button their list is updated
-//even after refreshing
-function saveChanges() {
-  p.rect(50,50,50,50);
-  p.text("SAVE");
-  if (p.mouseClicked && p.mouseX < )
-}
-    <script src="style.css"></script> -->
 
-    
-    <h1>
-      Welcome to your Fridge!
-    </h1>
-    
-<!--     dairy -->
-    <h2>
-        Dairy Products:
-      </h2>
-    
-    <input type="text" id="dairyAdd">
-      <button id = "dairyButtonId"> Add </button>
-    <button id = "dairyButtonIdDel"> Delete </button>
-    
-    <ul id="dairy">
-    </ul>
-<!-- end dairy -->
-    
-<!--     carbs -->
-    <h2>
-        Carbohydrates:
-      </h2>
-    
-    <input type="text" id="carbAdd">
-      <button id = "carbButtonId"> Add </button>
-    <button id = "carbButtonIdDel"> Delete </button>
-    
-    <ul id="carbs">
-    </ul>
-<!--     end carbs -->
-  
-<!--     proteins -->
-    
-    <h2>
-        Protein:
-      </h2>
-    
-    <input type="text" id="proteinAdd">
-      <button id = "proteinButtonId"> Add</button>
-    <button id = "proteinButtonIdDel"> Delete</button>
-    <ul id = "protein">
-    </ul>
-    
-<!--     end protein -->
-    
-<!--     nuts -->
-    
-    <h2>
-        Nuts:
-      </h2>
-    
-    <input type="text" id="nutsAdd">
-      <button id = "nutsButtonId"> Add </button>
-    <button id = "nutsButtonIdDel"> Delete </button>
-    
-    <ul id="nuts">
-    </ul>
-    
-<!--     end nuts -->
-    
-<!--     vegetables -->
-    
-    <h2>
-        Vegetables:
-      </h2>
-    
-    <input type="text" id="vegetablesAdd">
-      <button id = "vegeButtonId"> Add </button>
-    <button id = "vegeButtonIdDel"> Delete </button>
-    
-    <ul id="vegetables">
-    </ul>
-    
-<!--         end vegetables -->
-    
-<!--     fruits -->
-    
-    <h2>
-        Fruits:
-      </h2>
-    
-    <input type="text" id="fruitAdd">
-      <button id = "fruitButtonId"> Add </button>
-    <button id = "fruitButtonIdDel"> Delete </button>
-    
-    <ul id="fruits">
-    </ul>
-    
-<!--     end fruits -->
-    
-<!--     packaged foods -->
-    <h2>
-        Packaged Foods:
-      </h2>
-    
-    <input type="text" id="packageAdd">
-      <button id = "packageButtonId"> Add </button>
-    <button id = "packageButtonIdDel"> Delete </button>
-    
-    <ul id="packaged">
-    </ul>
-<!--     end packaged foods -->
-    
-<!--     spices and sauces -->
-    <h2>
-        Spices and Sauces:
-      </h2>
-    
-    <input type="text" id="ssAdd">
-      <button id = "ssButtonId"> Add </button>
-    <button id = "ssButtonIdDel"> Delete </button>
-    
-    <ul id="ss">
-    </ul>
-<!--     end spices and sauces -->
 
-<!--     beverages -->
-    <h2>
-        Beverages:
-      </h2>
-    
-    <input type="text" id="beveragesAdd">
-      <button id = "beveragesButtonId"> Add </button>
-    <button id = "beveragesButtonIdDel"> Delete </button>
-    
-    <ul id="beverages">
-    </ul>
-<!--     end beverages -->
+<!-- SAMPLE BLOCK - ALL THE TEMPLATES LOOK LIKE THIS, JUST CHANGE 'TYPE' NAME
+<div id="dairyDIV" class="header">
+  <h2>TYPE</h2>
+  <input type="text" id="myTYPEInput" placeholder="Grocery Item">
+  <span onclick="newTYPEElement()" class="addBtn">Add</span>
+</div>
 
-<!-- miscellaneous-->
-    <h2>
-        Miscellaneous:
-      </h2>
-    
-    <input type="text" id="miscAdd">
-      <button id = "miscButtonId">Add</button>
-    <button id = "miscButtonIdDel">Delete</button>
-    
-    <ul id="misc">
-    </ul>
-    
-<!--     end miscellaneous -->
-                
-    </body>
-  </html>
+<ul id="myTYPE">
+  list items user inserts will file in here using JS
+</ul>
+-->
+
+
+<!-- Dairy -->
+<div id="dairyDIV" class="header">
+  <h2>Dairy</h2>
+  <input type="text" id="myDairyInput" placeholder="Grocery Item">
+  <span onclick="newDairyElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myDairy">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Carbohydrate -->
+<div id="carbDIV" class="header">
+  <h2>Carbohydrates</h2>
+  <input type="text" id="myCarbInput" placeholder="Grocery Item">
+  <span onclick="newCarbElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myCarb">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+
+<!-- Protein -->
+<div id="proteinDIV" class="header">
+  <h2>Protein</h2>
+  <input type="text" id="myProteinInput" placeholder="Grocery Item">
+  <span onclick="newProteinElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myProtein">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Nuts -->
+<div id="nutsDIV" class="header">
+  <h2>Nuts</h2>
+  <input type="text" id="myNutsInput" placeholder="Grocery Item">
+  <span onclick="newNutsElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myNuts">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Vegetables -->
+<div id="vegetablesDIV" class="header">
+  <h2>Vegetables</h2>
+  <input type="text" id="myVegetablesInput" placeholder="Grocery Item">
+  <span onclick="newVegetablesElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myVegetables">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Fruits -->
+<div id="fruitsDIV" class="header">
+  <h2>Fruits</h2>
+  <input type="text" id="myFruitsInput" placeholder="Grocery Item">
+  <span onclick="newFruitsElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myFruits">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Packaged Foods -->
+<div id="packagedFoodsDIV" class="header">
+  <h2>Packaged Foods</h2>
+  <input type="text" id="myPackagedFoodsInput" placeholder="Grocery Item">
+  <span onclick="newPackagedFoodsElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myPackagedFoods">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Spices and Sauces -->
+<div id="spicesAndSaucesDIV" class="header">
+  <h2>Spices and Sauces</h2>
+  <input type="text" id="mySpicesAndSaucesInput" placeholder="Grocery Item">
+  <span onclick="newNutsElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="mySpicesAndSauces">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Beverages -->
+<div id="BeveragesDIV" class="header">
+  <h2>Beverages</h2>
+  <input type="text" id="myBeveragesInput" placeholder="Grocery Item">
+  <span onclick="newBeverages()" class="addBtn">Add</span>
+</div>
+
+<ul id="myBeverages">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
+<!-- Miscellaneous -->
+<div id="MiscellaneousDIV" class="header">
+  <h2>Miscellaneous</h2>
+  <input type="text" id="myMiscellaneousInput" placeholder="Grocery Item">
+  <span onclick="newMiscellaneousElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myMiscellaneous">
+  <!-- list items user inserts will file in here using JS -->
+</ul>
+
+<br>
+
